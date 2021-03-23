@@ -12,7 +12,7 @@ const sync = require('browser-sync').create()
 function html() {
   return src('src/**.html')
     .pipe(include({
-      prefix: '@@'
+      prefix: '@'
     }))
     .pipe(htmlmin({
       collapseWhitespace: true,
@@ -37,6 +37,8 @@ function scss() {
 function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
+    'node_modules/slick-carousel/slick/slick.js',
+    'node_modules/mixitup/dist/mixitup.js',
     'src/js/main.js'
   ])
     .pipe(concat('main.min.js'))
@@ -45,7 +47,7 @@ function scripts() {
 }
 
 function img() {
-  return src('src/img/**.*')
+  return src('src/img/**/**.*')
     .pipe(imagemin([
       imagemin.gifsicle({interlaced: true}),
       imagemin.mozjpeg({quality: 75, progressive: true}),
@@ -66,13 +68,14 @@ function clear() {
 
 function serve() {
   sync.init({
-    server: './dist/'
+    server: './dist/',
+    notify: false
   })
 
-  watch('src/**.html', series(html)).on('change', sync.reload)
-  watch('src/scss/**.scss', series(scss)).on('change', sync.reload)
-  watch('src/js/**.js', series(scripts)).on('change', sync.reload)
+  watch('src/**/*.html', series(html)).on('change', sync.reload)
+  watch('src/scss/**/*.scss', series(scss)).on('change', sync.reload)
+  watch('src/js/**/*.js', series(scripts)).on('change', sync.reload)
 }
 
 exports.build = series(clear, img, scss, scripts, html)
-exports.default = series(clear, scss, html, scripts, serve)
+exports.default = series(clear, img,scss, html, scripts, serve)

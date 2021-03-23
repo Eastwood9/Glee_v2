@@ -6,12 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/index.css">
-  <title>Document</title>
+  <link rel="shortcut icon" href="images/icons/favicon.png">
+  <title>Glee - online store</title>
 </head>
 
 <body>
-  @@include('parts/header.html')
-  @@include('parts/footer.html')
+  <div class="wrapper">
+    @include('parts/header.html')
+    <main class="main">
+      @include('parts/home-page/top-slider.html')
+      @include('parts/home-page/benefits.html')
+      @include('parts/home-page/week.html')
+    </main>
+    @include('parts/footer.html')
+  </div>
   <script src="js/main.min.js"></script>
 </body>
 

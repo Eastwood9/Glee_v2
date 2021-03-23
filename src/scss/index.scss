@@ -1,1 +1,14 @@
-@import 'components/header'
+@import 'reset';
+@import 'fonts';
+@import 'vars';
+@import 'libs';
+@import 'global';
+
+@import 'components/header';
+@import 'components/footer';
+
+// --- HOME PAGE ---
+@import 'components/home-page/top-slider';
+@import 'components/home-page/_benefits';
+@import 'components/home-page/week';
+// --- / HOME PAGE ---

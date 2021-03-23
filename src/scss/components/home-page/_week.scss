@@ -1,0 +1,142 @@
+.week {
+  padding: 60px 0 185px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 25px;
+  }
+
+  &__filter {
+    @extend %flexcenter;
+    margin-bottom: 75px;
+  }
+
+  &__filter-item:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  &__filter-btn {
+    border: none;
+    padding: 5px 8px;
+    background-color: transparent;
+    @extend %dmsans-700;
+    color: $secondary-light;
+    cursor: pointer;
+    transition: color 0.4s;
+  }
+
+  &__filter-btn:hover,
+  &__filter-item .mixitup-control-active {
+    color: #1a1a1a;
+  }
+
+  &__filter-btn:focus {
+    @extend %outline-secondary;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 30px;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 15px 40px;
+    width: 270px;
+    height: 380px;
+    box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
+  }
+
+  &__img {
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  &__item-title {
+    margin-top: auto;
+    @extend %dmsans-500;
+    color: $primary-dark;
+  }
+
+  &__item-price {
+    @extend %dmsans-700;
+    color: $primary-light;
+  }
+
+  &__item-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    max-width: 170px;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  &__item--active &__item-btn {
+    opacity: 1;
+  }
+
+  &__item-link {
+    @extend %flexcenter;
+  }
+
+  &__item-link:not(:last-child) {
+    margin-right: 12px;
+  }
+
+  &__item-link,
+  &__item-link::after {
+    width: 45px;
+    height: 45px;
+  }
+
+  &__item-link::before {
+    z-index: 1;
+    @extend %beforeafter,
+    %bgimage;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-image: url(../img/icons/week-search.svg);
+    transition: transform 0.3s;
+  }
+
+  &__item-link:nth-child(2):before {
+    background-image: url(../img/icons/week-cart.svg);
+  }
+
+  &__item-link:nth-child(3):before {
+    background-image: url(../img/icons/week-heart.svg);
+  }
+
+  &__item-link::after {
+    @extend %beforeafter;
+    background-color: #fff;
+    box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
+    border-radius: 50%;
+  }
+
+  &__item-link:nth-child(2)::after {
+    background-color: $primary-light;
+  }
+
+  &__item-link:hover::before {
+    transform: scale(1.2);
+  }
+
+  &__item-link:focus {
+    @extend %outline-primary;
+  }
+}

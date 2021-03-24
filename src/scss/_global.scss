@@ -4,7 +4,8 @@
   min-height: 100vh;
   font-size: 16px;
   line-height: 1.8;
-  @extend %rubik-400;
+  @include font(Rubik, 400);
+  color: $primary-neutral;
   background-color: #fff;
 }
 
@@ -12,19 +13,20 @@
   flex-grow: 1;
 }
 
-.container,
-.container-inner {
-  max-width: 1800px;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 
-  &-inner {
-    max-width: 1200px;
+  &--big {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1800px;
   }
 }
 
 .title {
-  @extend %dmsans-700;
+  @include font(DM Sans, 700);
   font-size: 36px;
   line-height: 1;
   color: $title;
@@ -52,7 +54,7 @@
 
   &__img {
     object-fit: contain;
-    width: 150px;
+    max-width: 150px;
     height: 40px;
   }
 }
@@ -65,4 +67,167 @@
   padding: 0;
   background-color: #edf1f4;
   border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.4s, background-color 0.4s;
+
+  &:hover {
+    background-color: #d8e0e6;
+
+    svg {
+      transform: scale(1.2);
+    }
+  }
+
+  &:focus {
+    @extend %outline-primary;
+  }
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  fill: #445b67;
+  transition: transform 0.4s;
+}
+
+.c-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 200px;
+  height: 60px;
+  padding: 16px 25px;
+  border: none;
+  font-size: 15px;
+  @include font(Rubik, 500);
+  background-color: $primary-light;
+  color: #fff;
+  transition: background-color 0.4s;
+
+  &:hover {
+    background-color: $primary-neutral;
+  }
+
+  &:focus {
+    @extend %outline-primary;
+  }
+
+  svg {
+    width: 22px;
+    height: 10px;
+    fill: #fff;
+  }
+}
+
+.filter {
+  @extend %flexcenter;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    .mixitup-control-active {
+      color: #1a1a1a;
+    }
+  }
+
+  &__btn {
+    border: none;
+    padding: 5px 8px;
+    background-color: transparent;
+    @include font(DM Sans, 700);
+    color: $secondary-light;
+    cursor: pointer;
+    transition: color 0.4s;
+
+    &:hover {
+      color: #1a1a1a;
+    }
+
+    &:focus {
+      @extend %outline-secondary;
+    }
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 15px 40px;
+  max-width: 270px;
+  width: 100%;
+  min-height: 380px;
+  box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
+  transition: box-shadow 0.4s;
+
+  &--active {
+    box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.15);
+
+    .card__btns {
+      opacity: 1;
+    }
+  }
+
+  &__img {
+    margin: auto;
+    max-width: 230px;
+    max-height: 250px;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  &__title {
+    margin-top: auto;
+    text-align: center;
+    font-size: 16px;
+    @include font(DM Sans, 500);
+    color: $primary-dark;
+    @include line-clamp(16px, 1.8, 1);
+  }
+
+  &__price {
+    @include font(DM Sans, 700);
+    color: $primary-light;
+  }
+
+  &__btns {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    max-width: 170px;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__btn {
+    width: 45px;
+    height: 45px;
+    background-color: #fff;
+    box-shadow: 0 0 15px -8px #000000;
+    transition: background-color 0.4s, fill 0.4s;
+
+    svg {
+      fill: $primary-light;
+    }
+
+    &:hover {
+      background-color: $primary-light;
+
+      svg {
+        fill: #fff;
+      }
+    }
+  }
 }

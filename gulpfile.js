@@ -6,6 +6,10 @@ const autoprefixer = require('gulp-autoprefixer')
 const imagemin = require('gulp-imagemin')
 const include = require('gulp-file-include')
 const htmlmin = require('gulp-htmlmin')
+const cheerio = require('gulp-cheerio')
+const replace = require('gulp-replace')
+const svgsprite = require('gulp-svg-sprite')
+const svgmin = require('gulp-svgmin')
 const del = require('del')
 const sync = require('browser-sync').create()
 
@@ -47,7 +51,7 @@ function scripts() {
 }
 
 function img() {
-  return src('src/img/**/**.*')
+  return src('src/img/**/**.{png,jpg,gif}')
     .pipe(imagemin([
       imagemin.gifsicle({interlaced: true}),
       imagemin.mozjpeg({quality: 75, progressive: true}),
@@ -60,6 +64,38 @@ function img() {
       })
     ]))
     .pipe(dest('dist/img'))
+}
+
+function svg() {
+  return src('src/img/svg/**/**.svg')
+    .pipe(svgmin({
+      js2svg: {
+        pretty: true
+    }
+    }))
+    .pipe(cheerio({
+      run: function($) {
+        $('[fill]').removeAttr('fill');
+        $('[stroke]').removeAttr('stroke');
+        $('[style]').removeAttr('style');
+      },
+      parserOptions: { xmlMode: true}
+    }))
+    .pipe(replace('$gt;', '>'))
+    .pipe(svgsprite({
+      mode: {
+        symbol: {
+          sprite: 'sprite.svg',
+          inline: true
+        }
+      }
+    }))
+    .pipe(dest('dist/img/svg'))
+}
+
+function fonts() {
+  return src('src/fonts/**.*')
+    .pipe(dest('dist/fonts'))
 }
 
 function clear() {
@@ -77,5 +113,5 @@ function serve() {
   watch('src/js/**/*.js', series(scripts)).on('change', sync.reload)
 }
 
-exports.build = series(clear, img, scss, scripts, html)
-exports.default = series(clear, img,scss, html, scripts, serve)
+exports.build = series(clear, img, svg, fonts, scss, scripts, html)
+exports.default = series(scss, html, scripts, serve)

@@ -15,17 +15,20 @@
     display: flex;
   }
 
-  &__list-item:not(:last-child) {
-    margin-right: 28px;
+  &__item {
+    &:not(:last-child) {
+      margin-right: 28px;
+    }
   }
 
-  &__list-link {
+  &__link {
+    position: relative;
     padding: 0 2px 4px;
     border-bottom: 1px solid transparent;
     font-size: 15px;
     color: $primary-neutral;
     transition: border-color 0.4s;
-    @extend %rubik-500;
+    @include font(Rubik, 500);
 
     &:hover {
       border-color: $primary-dark;
@@ -34,10 +37,10 @@
     &:focus {
       @extend %outline-primary;
     }
-  }
 
-  &__list-link--active {
-    border-color: $primary-dark;
+    &--active {
+      border-color: $primary-dark;
+    }
   }
 }
 
@@ -53,16 +56,61 @@
     width: 90px;
     border-radius: 25px 0 0 25px;
     background-color: #fcd7b6;
+
+    &:hover {
+      background-color: #fde7d3;
+    }
   }
 
   &__cart {
     border-radius: 0 25px 25px 0;
     margin-right: 20px;
+
+    &::before {
+      @extend %beforeafter;
+      left: 0;
+      height: 32px;
+      border-left: 1px solid #fde7d3;
+    }
+  }
+
+  &__menu {
+    background-color: $primary-light;
+
+    .icon {
+      fill: #fff;
+    }
+
+    &:hover {
+      background-color: $primary-neutral;
+    }
   }
 
   &__link {
+    position: relative;
+
     &:focus {
       @extend %outline-primary;
+    }
+  }
+
+  &__num {
+    position: absolute;
+    top: 8px;
+    right: 30px;
+    z-index: 1;
+    @include font(Dm Sans, 400);
+    @extend %flexcenter;
+    font-size: 10px;
+    color: $primary-dark;
+
+    &::before {
+      @extend %beforeafter;
+      z-index: -1;
+      width: 16px;
+      height: 16px;
+      background-color: #fff;
+      border-radius: 50%;
     }
   }
 }

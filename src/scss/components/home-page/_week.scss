@@ -1,5 +1,5 @@
 .week {
-  padding: 60px 0 185px;
+  padding: 70px 0 100px;
 
   &__inner {
     display: flex;
@@ -11,14 +11,18 @@
     margin-bottom: 25px;
   }
 
-  &__filter {
-    margin-bottom: 75px;
+  &__content {
+    margin-bottom: 185px;
   }
 
-  &__content {
+  &__wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px 30px;
     width: 100%;
+  }
+
+  &__filter {
+    margin-bottom: 70px;
   }
 }

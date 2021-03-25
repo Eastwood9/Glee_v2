@@ -1,6 +1,6 @@
 .benefits {
   &__inner {
-    background-color: #fef7f0;
+    background-color: $bg-secondary-light;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }

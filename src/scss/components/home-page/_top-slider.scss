@@ -4,7 +4,7 @@
   &__outer {
     z-index: 1;
     padding: 220px 0 275px;
-    background-color: #fcd7b6;
+    background-color: $bg-secondary-dark;
     overflow-x: hidden;
 
     & .slick-list {

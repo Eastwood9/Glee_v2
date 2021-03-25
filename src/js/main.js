@@ -12,5 +12,12 @@ $(function() {
     $(this).toggleClass('card--active');
   });
 
-  var mixer = mixitup('.week__content');
+  var mixConfig = {
+    controls: {
+      scope: 'local'
+    }
+  };
+
+  var mixer = mixitup('.week__content', mixConfig);
+  var mixer1 = mixitup('.new__content', mixConfig);
 });

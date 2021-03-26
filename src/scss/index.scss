@@ -1,8 +1,8 @@
 @import 'reset';
 @import 'fonts';
-@import 'libs';
 @import 'vars';
 @import 'mixins';
+@import 'libs';
 @import 'global';
 
 @import 'components/header';
@@ -14,4 +14,5 @@
 @import 'components/home-page/week';
 @import 'components/home-page/promo';
 @import 'components/home-page/new';
+@import 'components/home-page/video';
 // --- / HOME PAGE ---

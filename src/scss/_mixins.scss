@@ -16,3 +16,11 @@
   font-family: $family, sans-serif;
   font-weight: $weight;
 }
+
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers});
+}
+
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
+}

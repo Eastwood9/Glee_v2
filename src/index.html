@@ -1,26 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- TODO -->
+<!-- Dropdown menu, button clicked animation -->
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="shortcut icon" href="images/icons/favicon.png">
-  <title>Glee - online store</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    @include('parts/header.html')
-    <main class="main">
-      @include('parts/home-page/top-slider.html')
-      @include('parts/home-page/benefits.html')
-      @include('parts/home-page/week.html')
-    </main>
-    @include('parts/footer.html')
-  </div>
-  <script src="js/main.min.js"></script>
-</body>
-
-</html>
+@include('parts/global/header.html', {
+"title": "Glee - online store"
+})
+<h1 class="sr-only">Glee - Home page</h1>
+<main class="main">
+  @include('parts/home-page/top-slider.html')
+  @include('parts/home-page/benefits.html')
+  @include('parts/home-page/week.html')
+  @include('parts/home-page/new.html')
+  @include('parts/global/insights.html')
+  @include('parts/global/partners.html')
+</main>
+@include('parts/global/footer.html')

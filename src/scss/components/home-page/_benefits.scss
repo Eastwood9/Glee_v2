@@ -1,6 +1,6 @@
 .benefits {
   &__inner {
-    background-color: #fef7f0;
+    background-color: $bg-secondary-light;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -9,65 +9,52 @@
     position: relative;
     @extend %flexcenter;
     padding: 45px 0;
+
+    svg {
+      align-self: flex-start;
+      width: 50px;
+      fill: $primary-light;
+    }
   }
 
-  &__item-wrapper {
+  &__wrap {
     position: relative;
+    align-self: flex-start;
+    margin-right: 30px;
+
+    &::before {
+      @extend %beforeafter;
+      right: -4px;
+      bottom: 5px;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(163, 187, 200, 0.34);
+      border-radius: 50%;
+    }
   }
 
   &__item:not(:last-child) {
     border-right: 1px solid #e8e4df;
   }
 
+  &__wrapper {
+    max-width: 215px;
+  }
+
   &__title {
     margin-bottom: 10px;
-    @extend %dmsans-700;
+    @include font(DM Sans, 700);
+    @include line-clamp(18px, 1, 1);
     color: $secondary-dark;
     font-size: 18px;
     line-height: 1;
   }
 
   &__text {
-    @extend %dmsans-400;
+    @include font(DM Sans, 400);
+    @include line-clamp(16px, 1.8, 2);
     color: $secondary-neutral;
     max-width: 200px;
-  }
-
-  &__item-wrapper::before {
-    @extend %beforeafter,
-    %bgimage;
-    left: -80px;
-    width: 50px;
-    height: 50px;
-    background-image: url(../img/icons/benefits-1.svg);
-    background-size: contain;
-  }
-
-  &__item:nth-child(2) &__item-wrapper::before {
-    background-image: url(../img/icons/benefits-2.svg);
-  }
-
-  &__item:nth-child(3) &__item-wrapper::before {
-    background-image: url(../img/icons/benefits-3.svg);
-  }
-
-  &__item-wrapper::after {
-    @extend %beforeafter;
-    top: 32px;
-    left: -47px;
-    width: 20px;
-    height: 20px;
-    background-color: rgba(163, 187, 200, 0.34);
-    border-radius: 50%;
-  }
-
-  &__item:nth-child(2) &__item-wrapper::after {
-    top: 25px;
-    left: -44px;
-  }
-
-  &__item:nth-child(3) &__item-wrapper::after {
-    top: 34px;
-    left: -44px;
+    text-overflow: ellipsis;
   }
 }

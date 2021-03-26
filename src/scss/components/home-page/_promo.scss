@@ -1,0 +1,70 @@
+.promo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+
+  &__card {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 30px;
+    min-height: 390px;
+    background-color: $bg-secondary-neutral;
+    color: $primary-dark;
+  }
+
+  &__img {
+    position: relative;
+  }
+
+  &__image {
+    position: absolute;
+    top: -100px;
+    right: 0;
+    max-width: 280px;
+    max-height: 420px;
+    object-fit: contain;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 60px;
+    max-width: 350px;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    max-width: 240px;
+    font-size: 26px;
+    @include font(DM Sans, 700);
+    @include line-clamp(26px, 1.2, 2);
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    @include font(Rubik, 400);
+    @include line-clamp(16px, 1.8, 3);
+  }
+
+  &__link {
+    max-width: 180px;
+    background-color: $bg-secondary-neutral;
+    border: 1px solid #b3b7b5;
+    border-radius: 3px;
+    color: $primary-neutral;
+
+    svg {
+      fill: $primary-neutral;
+    }
+
+    &:hover {
+      color: $bg-secondary-neutral;
+
+      svg {
+        fill: $bg-secondary-neutral;
+      }
+    }
+  }
+
+}

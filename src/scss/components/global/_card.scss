@@ -1,0 +1,81 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 15px 40px;
+  width: 100%;
+  min-height: 380px;
+  background-color: #fff;
+  box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
+  transition: box-shadow 0.4s, background-color 0.4s;
+
+  &:hover {
+    background-color: #f2f2f2;
+    box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.1);
+
+    .card__btns {
+      opacity: 1;
+    }
+  }
+
+  &__img {
+    margin: auto;
+    max-width: 230px;
+    max-height: 250px;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  &__title {
+    margin-top: auto;
+    text-align: center;
+    font-size: 16px;
+    @include font(DM Sans, 500);
+    color: $primary-dark;
+    @include line-clamp(16px, 1.8, 1);
+  }
+
+  &__price {
+    @include font(DM Sans, 700);
+    color: $primary-light;
+  }
+
+  &__btns {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    max-width: 170px;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__btn {
+    width: 45px;
+    height: 45px;
+    background-color: #fff;
+    box-shadow: 0 0 15px -8px #000000;
+    transition: background-color 0.4s, fill 0.4s;
+
+    svg {
+      fill: $primary-light;
+    }
+
+    &:hover {
+      background-color: $primary-light;
+
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+}

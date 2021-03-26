@@ -1,0 +1,138 @@
+.footer {
+  padding: 100px 0 35px;
+  color: $footer-default;
+  font-size: 14px;
+  line-height: 1.7;
+
+  &__top {
+    display: flex;
+    padding-bottom: 70px;
+  }
+
+  &__logo {
+    margin-bottom: 25px;
+  }
+
+  &__title {
+    margin-bottom: 14px;
+    @include font(DM Sans, 700);
+    font-size: 16px;
+    text-transform: uppercase;
+    color: $footer-title;
+  }
+
+  &__text {
+    margin-bottom: 35px;
+    @include line-clamp(14px, 1.7, 3);
+  }
+
+  &__link {
+    @include line-clamp(14px, 1.7, 2);
+
+    &:focus {
+      @extend %outline-secondary;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__item {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__contact {
+    transform: translateY(-12px);
+  }
+
+  &__address {
+    .footer__link {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__top-item {
+    max-width: 200px;
+    width: 100%;
+    margin-right: 100px;
+  }
+
+  &__news {
+    max-width: 270px;
+    margin-right: 0;
+  }
+
+  &__submit {
+    display: flex;
+  }
+
+  &__input {
+    max-width: 170px;
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    background-color: #fef7f0;
+
+    &:focus {
+      @extend %outline-secondary;
+    }
+
+    &::placeholder {
+      font-size: 12px;
+      color: #234969;
+    }
+  }
+
+  &__btn {
+    padding: 10px 15px;
+    border: none;
+    width: 100%;
+    max-width: 100px;
+    background-color: $primary-light;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.4s;
+
+    &:focus {
+      @extend %outline-primary;
+    }
+
+    &:hover {
+      background-color: $primary-neutral;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 35px;
+    border-top: 1px solid #dae4e9;
+  }
+
+  &__menu {
+    display: flex;
+  }
+
+  &__page {
+    padding-left: 15px;
+
+    &:not(:last-child) {
+      padding: 0 15px;
+      border-right: 1px solid $footer-default;
+    }
+  }
+
+  &__page-link {
+    display: block;
+    line-height: 1.3;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

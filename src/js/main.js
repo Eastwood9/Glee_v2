@@ -1,6 +1,6 @@
 $(function() {
 
-  $('.top-slider__inner').slick({
+  $('.top-slider__outer').slick({
     arrows: false,
     dots: true,
     speed: 1000,
@@ -8,9 +8,22 @@ $(function() {
     autoplaySpeed: 6000
   })
 
-  $(".week__item").hover(function () {
-    $(this).toggleClass('week__item--active');
+  $('.insights__content').slick({
+    arrows: false,
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 6000
   });
 
-  var mixer = mixitup('.week__content');
+  var mixConfig = {
+    controls: {
+      scope: 'local'
+    }
+  };
+
+  var mixer = mixitup('.week__content', mixConfig);
+  var mixer1 = mixitup('.new__content', mixConfig);
 });

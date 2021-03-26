@@ -1,14 +1,20 @@
 @import 'reset';
 @import 'fonts';
 @import 'vars';
+@import 'mixins';
 @import 'libs';
 @import 'global';
 
-@import 'components/header';
-@import 'components/footer';
+@import 'components/global/header';
+@import 'components/global/footer';
+@import 'components/global/insights';
+@import 'components/global/partners';
 
 // --- HOME PAGE ---
 @import 'components/home-page/top-slider';
 @import 'components/home-page/_benefits';
 @import 'components/home-page/week';
+@import 'components/home-page/promo';
+@import 'components/home-page/new';
+@import 'components/home-page/video';
 // --- / HOME PAGE ---

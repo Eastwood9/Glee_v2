@@ -1,0 +1,125 @@
+.title {
+  @include font(DM Sans, 700);
+  font-size: 36px;
+  text-align: center;
+  line-height: 1;
+  color: $title;
+}
+
+.logo {
+  display: block;
+
+  &:focus {
+    @extend %outline-primary
+  }
+
+  &__img {
+    object-fit: contain;
+    max-width: 150px;
+    height: 40px;
+  }
+}
+
+.circle {
+  @extend %flexcenter;
+  width: 50px;
+  height: 50px;
+  border: none;
+  padding: 0;
+  background-color: #edf1f4;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.4s, background-color 0.4s;
+
+  &:hover {
+    background-color: #d8e0e6;
+
+    svg {
+      transform: scale(1.2);
+    }
+  }
+
+  &:focus {
+    @extend %outline-primary;
+  }
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  fill: #445b67;
+  transition: transform 0.4s;
+}
+
+.c-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 200px;
+  width: 100%;
+  height: 60px;
+  padding: 16px 25px;
+  border: none;
+  font-size: 15px;
+  @include font(Rubik, 500);
+  background-color: $primary-light;
+  color: #fff;
+  transition: background-color 0.4s;
+
+  &:hover {
+    background-color: $primary-neutral;
+  }
+
+  &:focus {
+    @extend %outline-primary;
+  }
+
+  svg {
+    width: 22px;
+    height: 10px;
+    fill: #fff;
+  }
+}
+
+.filter {
+  @extend %flexcenter;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    .mixitup-control-active {
+      color: #1a1a1a;
+    }
+  }
+
+  &__btn {
+    border: none;
+    padding: 5px 8px;
+    background-color: transparent;
+    @include font(DM Sans, 700);
+    color: $secondary-light;
+    cursor: pointer;
+    transition: color 0.4s;
+
+    &:hover {
+      color: #1a1a1a;
+    }
+
+    &:focus {
+      @extend %outline-secondary;
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: background-color 0.4s;
+  background-color: rgba(0, 0, 0, 0);
+}

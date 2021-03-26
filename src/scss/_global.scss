@@ -1,10 +1,14 @@
+@import 'components/global/decor';
+@import 'components/global/card';
+
 .wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   font-size: 16px;
   line-height: 1.8;
-  @extend %rubik-400;
+  @include font(Rubik, 400);
+  color: $primary-neutral;
   background-color: #fff;
 }
 
@@ -12,22 +16,16 @@
   flex-grow: 1;
 }
 
-.container,
-.container-inner {
-  max-width: 1800px;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 
-  &-inner {
-    max-width: 1200px;
+  &--big {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1800px;
   }
-}
-
-.title {
-  @extend %dmsans-700;
-  font-size: 36px;
-  line-height: 1;
-  color: $title;
 }
 
 .sr-only {
@@ -41,28 +39,4 @@
   white-space: nowrap;
   /* added line */
   border: 0;
-}
-
-.logo {
-  display: block;
-
-  &:focus {
-    @extend %outline-primary
-  }
-
-  &__img {
-    object-fit: contain;
-    width: 150px;
-    height: 40px;
-  }
-}
-
-.circle {
-  @extend %flexcenter;
-  width: 50px;
-  height: 50px;
-  border: none;
-  padding: 0;
-  background-color: #edf1f4;
-  border-radius: 50%;
 }

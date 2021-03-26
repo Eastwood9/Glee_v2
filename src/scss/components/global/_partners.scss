@@ -1,0 +1,12 @@
+.partners {
+  padding: 90px 0;
+  @extend %flexcenter;
+  background-color: $bg-secondary-light;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+}

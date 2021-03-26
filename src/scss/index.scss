@@ -5,8 +5,10 @@
 @import 'libs';
 @import 'global';
 
-@import 'components/header';
-@import 'components/footer';
+@import 'components/global/header';
+@import 'components/global/footer';
+@import 'components/global/insights';
+@import 'components/global/partners';
 
 // --- HOME PAGE ---
 @import 'components/home-page/top-slider';

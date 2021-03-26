@@ -1,4 +1,7 @@
-@include('parts/header.html', {
+<!-- TODO -->
+<!-- Dropdown menu, button clicked animation -->
+
+@include('parts/global/header.html', {
 "title": "Glee - online store"
 })
 <h1 class="sr-only">Glee - Home page</h1>
@@ -7,5 +10,7 @@
   @include('parts/home-page/benefits.html')
   @include('parts/home-page/week.html')
   @include('parts/home-page/new.html')
+  @include('parts/global/insights.html')
+  @include('parts/global/partners.html')
 </main>
-@include('parts/footer.html')
+@include('parts/global/footer.html')

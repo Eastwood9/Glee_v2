@@ -8,5 +8,18 @@
     align-items: center;
     justify-content: space-around;
     width: 100%;
+
+    .slick-slide {
+      outline: transparent;
+    }
+  }
+
+  &__link {
+    @extend %flexcenter;
+    min-height: 90px;
+
+    &:focus {
+      outline: transparent;
+    }
   }
 }

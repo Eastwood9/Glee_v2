@@ -3,6 +3,11 @@
     background-color: $bg-secondary-light;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
+    @include media("<=screen-md") {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__item {
@@ -14,6 +19,24 @@
       align-self: flex-start;
       width: 50px;
       fill: $primary-light;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid #e8e4df;
+    }
+
+    @include media("<=screen-bg") {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    @include media("<=screen-md") {
+      padding: 15px 0;
+
+      &:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid #e8e4df;
+      }
     }
   }
 
@@ -31,19 +54,21 @@
       background-color: rgba(163, 187, 200, 0.34);
       border-radius: 50%;
     }
-  }
 
-  &__item:not(:last-child) {
-    border-right: 1px solid #e8e4df;
+    @include media("<=screen-bg") {
+      align-self: center;
+    }
   }
 
   &__wrapper {
     max-width: 215px;
+
+    @include media("<=screen-bg") {}
   }
 
   &__title {
     margin-bottom: 10px;
-    @include font(DM Sans, 700);
+    @include font('DM Sans', 700);
     @include line-clamp(18px, 1, 1);
     color: $secondary-dark;
     font-size: 18px;
@@ -51,7 +76,7 @@
   }
 
   &__text {
-    @include font(DM Sans, 400);
+    @include font('DM Sans', 400);
     @include line-clamp(16px, 1.8, 2);
     color: $secondary-neutral;
     max-width: 200px;

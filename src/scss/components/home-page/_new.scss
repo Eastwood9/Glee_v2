@@ -1,4 +1,4 @@
-.new {
+.new-design {
   padding-bottom: 110px;
 
   &__title {
@@ -36,7 +36,7 @@
   &__name {
     max-width: 180px;
     text-align: left;
-    @include font(DM Sans, bold);
+    @include font('DM Sans', bold);
     @include line-clamp(20, 1.3, 2);
     font-size: 20px;
     color: $title;
@@ -48,7 +48,7 @@
   }
 
   &__style {
-    @include font(DM Sans, bold);
+    @include font('DM Sans', bold);
     @include line-clamp(16px, 1.7, 2);
     color: $primary-light;
     max-width: 70px;

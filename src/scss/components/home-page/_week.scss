@@ -20,9 +20,34 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 40px 30px;
     width: 100%;
+
+    @include media("<=screen-lg") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include media("<=screen-bg") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media("<=620px") {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+  }
+
+  &__item {
+    @include media("<=620px") {
+      margin-bottom: 15px;
+    }
   }
 
   &__filter {
     margin-bottom: 70px;
+
+    @include media("<=screen-md") {
+      margin-bottom: 35px;
+    }
   }
 }

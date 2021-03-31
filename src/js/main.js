@@ -4,18 +4,34 @@ $(function() {
     arrows: false,
     dots: true,
     speed: 1000,
-    autoplay: true,
-    autoplaySpeed: 6000
+    // autoplay: true,
+    // autoplaySpeed: 6000
+    responsive: [
+      {
+        breakpoint: 993,
+        settings: {
+          dots: false
+        }
+      }
+    ],
   })
 
-  $('.insights__content').slick({
+  $('.partners__content').slick({
     arrows: false,
     dots: false,
     infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 6000
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    // autoplay: true,
+    // autoplaySpeed: 6000
+  });
+
+  $('.user-nav__menu, .overlay').on('click', function () {
+    $('.menu').toggleClass('menu--active');
+    $('.user-nav__menu .icon').toggleClass('icon--hidden');
+    $('.overlay').toggleClass('overlay--hidden');
+    $('.user-nav__btn').toggleClass('user-nav__btn--active');
+    $('.header__logo').toggleClass('header__logo--hidden');
   });
 
   var mixConfig = {

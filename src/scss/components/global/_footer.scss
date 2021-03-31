@@ -7,15 +7,38 @@
   &__top {
     display: flex;
     padding-bottom: 70px;
+
+    @include media("<=screen-lg") {
+      justify-content: space-between;
+    }
+
+    @include media("<=screen-md") {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    @include media("<=screen-sm") {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
   }
 
   &__logo {
     margin-bottom: 25px;
+
+    @include media("<=screen-sm") {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__title {
     margin-bottom: 14px;
-    @include font(DM Sans, 700);
+    @include font('DM Sans', 700);
     font-size: 16px;
     text-transform: uppercase;
     color: $footer-title;
@@ -48,6 +71,10 @@
 
   &__contact {
     transform: translateY(-12px);
+
+    @include media("<=screen-md") {
+      transform: translateY(0);
+    }
   }
 
   &__address {
@@ -60,11 +87,31 @@
     max-width: 200px;
     width: 100%;
     margin-right: 100px;
+
+    @include media("<=screen-lg") {
+      margin-right: 10px;
+    }
+
+    @include media("<=screen-md") {
+      max-width: none;
+    }
+  }
+
+  &__account,
+  &__services {
+    @include media("<=screen-lg") {
+      max-width: 150px;
+    }
   }
 
   &__news {
     max-width: 270px;
     margin-right: 0;
+
+    @include media("<=screen-md") {
+      grid-column-start: 2;
+      grid-row-start: 1;
+    }
   }
 
   &__submit {
@@ -112,6 +159,13 @@
     justify-content: space-between;
     padding-top: 35px;
     border-top: 1px solid #dae4e9;
+
+    @include media("<=screen-sm") {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
   }
 
   &__menu {
@@ -133,6 +187,14 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  &__copy {
+    line-height: 1.3;
+
+    @include media("<=screen-sm") {
+      margin-bottom: 10px;
     }
   }
 }

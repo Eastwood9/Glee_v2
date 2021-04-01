@@ -1,5 +1,5 @@
 .title {
-  @include font(DM Sans, 700);
+  @include font('DM Sans', 700);
   font-size: 36px;
   text-align: center;
   line-height: 1;
@@ -39,6 +39,10 @@
     }
   }
 
+  &:active {
+    background-color: #e2e7eb;
+  }
+
   &:focus {
     @extend %outline-primary;
   }
@@ -49,6 +53,10 @@
   height: 18px;
   fill: #445b67;
   transition: transform 0.4s;
+
+  &--hidden {
+    display: none;
+  }
 }
 
 .c-button {
@@ -61,7 +69,7 @@
   padding: 16px 25px;
   border: none;
   font-size: 15px;
-  @include font(Rubik, 500);
+  @include font('Rubik', 500);
   background-color: $primary-light;
   color: #fff;
   transition: background-color 0.4s;
@@ -83,6 +91,7 @@
 
 .filter {
   @extend %flexcenter;
+  flex-wrap: wrap;
 
   &__item {
     &:not(:last-child) {
@@ -98,7 +107,7 @@
     border: none;
     padding: 5px 8px;
     background-color: transparent;
-    @include font(DM Sans, 700);
+    @include font('DM Sans', 700);
     color: $secondary-light;
     cursor: pointer;
     transition: color 0.4s;
@@ -114,12 +123,26 @@
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  transition: background-color 0.4s;
-  background-color: rgba(0, 0, 0, 0);
+  display: none;
+
+  @include media('<=screen-bg') {
+    display: block;
+    background-color: #000;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    opacity: 0.5;
+    transition: opacity 0.4s;
+
+    &--hidden {
+      opacity: 0;
+      z-index: -100;
+    }
+  }
+
 }

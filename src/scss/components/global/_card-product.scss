@@ -1,4 +1,4 @@
-.card {
+.card-product {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -6,7 +6,6 @@
   justify-content: space-between;
   padding: 25px 15px 40px;
   width: 100%;
-  min-height: 380px;
   background-color: #fff;
   box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
   transition: box-shadow 0.4s, background-color 0.4s;
@@ -15,16 +14,16 @@
     background-color: #f2f2f2;
     box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.1);
 
-    .card__btns {
+    .card-product__btns {
       opacity: 1;
     }
   }
 
   &__img {
-    margin: auto;
-    max-width: 230px;
-    max-height: 250px;
-    object-fit: contain;
+    margin: 0 auto 25px;
+    width: 240px;
+    height: 230px;
+    object-fit: scale-down;
     object-position: center center;
   }
 
@@ -32,13 +31,13 @@
     margin-top: auto;
     text-align: center;
     font-size: 16px;
-    @include font(DM Sans, 500);
+    @include font('DM Sans', 500);
     color: $primary-dark;
     @include line-clamp(16px, 1.8, 1);
   }
 
   &__price {
-    @include font(DM Sans, 700);
+    @include font('DM Sans', 700);
     color: $primary-light;
   }
 
@@ -76,6 +75,10 @@
       svg {
         fill: #fff;
       }
+    }
+
+    &:active {
+      background-color: $primary-neutral;
     }
   }
 }

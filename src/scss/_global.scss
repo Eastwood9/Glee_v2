@@ -1,5 +1,5 @@
 @import 'components/global/decor';
-@import 'components/global/card';
+@import 'components/global/card-product';
 
 .wrapper {
   display: flex;
@@ -7,7 +7,7 @@
   min-height: 100vh;
   font-size: 16px;
   line-height: 1.8;
-  @include font(Rubik, 400);
+  @include font('Rubik', 400);
   color: $primary-neutral;
   background-color: #fff;
 }
@@ -22,7 +22,7 @@
   padding: 0 15px;
 
   &--big {
-    margin: 0 auto;
+    margin: 0 auto; //??? 
     padding: 0 15px;
     max-width: 1800px;
   }

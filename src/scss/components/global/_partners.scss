@@ -3,10 +3,43 @@
   @extend %flexcenter;
   background-color: $bg-secondary-light;
 
+  @include media("<=screen-md") {
+    padding: 60px 0;
+  }
+
   &__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
+
+    .slick-slide {
+      outline: transparent;
+    }
+
+    @include media("<=1220px") {
+      max-width: 991px;
+    }
+
+    @include media("<=1040px") {
+      max-width: 767px;
+    }
+
+    @include media("<=820px") {
+      max-width: 480px;
+    }
+
+    @include media("<=530px") {
+      max-width: 300px;
+    }
+
+    @include media("<=360px") {
+      max-width: 200px;
+    }
+  }
+
+  &__link {
+    @extend %flexcenter;
+    min-height: 90px;
+
+    &:focus {
+      outline: transparent;
+    }
   }
 }

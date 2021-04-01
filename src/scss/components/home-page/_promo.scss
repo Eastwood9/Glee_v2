@@ -3,6 +3,11 @@
   grid-template-columns: 1fr 1fr;
   gap: 30px;
 
+  @include media("<=screen-md") {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__card {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
@@ -10,6 +15,18 @@
     min-height: 390px;
     background-color: $bg-secondary-neutral;
     color: $primary-dark;
+
+    @include media("<=screen-lg") {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    @include media("<=screen-bg") {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      text-align: center;
+      padding: 15px;
+    }
   }
 
   &__img {
@@ -23,27 +40,48 @@
     max-width: 280px;
     max-height: 420px;
     object-fit: contain;
+
+    @include media("<=screen-lg") {
+      top: -50px;
+      max-width: 200px;
+      max-height: 300px;
+    }
+
+    @include media("<=screen-bg") {
+      position: static;
+      max-width: 150px;
+      max-height: 225px;
+    }
   }
 
   &__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 60px;
+    margin-right: 10px;
     max-width: 350px;
+
+    @include media("<=screen-bg") {
+      align-items: center;
+      margin-right: 0;
+    }
+
+    @include media("<=screen-md") {
+      max-width: 300px;
+    }
   }
 
   &__title {
     margin-bottom: 10px;
     max-width: 240px;
     font-size: 26px;
-    @include font(DM Sans, 700);
+    @include font('DM Sans', 700);
     @include line-clamp(26px, 1.2, 2);
   }
 
   &__text {
     margin-bottom: 30px;
-    @include font(Rubik, 400);
+    @include font('Rubik', 400);
     @include line-clamp(16px, 1.8, 3);
   }
 

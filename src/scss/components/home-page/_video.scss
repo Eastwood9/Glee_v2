@@ -5,6 +5,14 @@
     background-image: url(../img/home-page/video-bg.jpg);
     @extend %bgimage,
     %flexcenter;
+
+    @include media("<=screen-bg") {
+      min-height: 400px;
+    }
+
+    @include media("<=screen-md") {
+      min-height: 300px;
+    }
   }
 
   &__btn {
